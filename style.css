@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+:root {
+    --Very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --Very-dark-blackish-blue: hsl(219, 29%, 14%);
+    --White: hsl(0, 0%, 100%);
+    --Moderate-violet: hsl(263, 55%, 52%);
+    --Light-gray: hsl(0, 0%, 81%);
+    --Light-opaque-gray: hsla(0, 0%, 81%, 50%);
+    --Light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+/* Screen Reader only for accessibility */
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.attribution {
+    display: none;
+}
+
+body {
+    background-color: var(--Light-grayish-blue);
+    font-family: 'Barlow Semi Condensed', sans-serif;
+        font-size: 0.8125em;
+        font-weight: 500;
+}
+
+main {
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.cards_container {
+    width: 85em;
+    height: 45em;
+    display: grid;
+    grid-template: 1fr 1fr / repeat(4, 1fr);
+    gap: 2em;
+}
+
+.card {
+    border-radius: 0.75em;
+    padding: 2em 2.6em;
+    display: grid;
+    grid-template: 2.5em auto auto / 2.5em 1fr ;
+    gap: 1em;
+    place-items: center;
+    box-shadow: 10px 10px 20px var(--Light-opaque-gray);
+}
+
+.card__profile-photo {
+    width: 2em;
+    border: 2px solid var(--Light-opaque-gray);
+    border-radius: 50%;
+    grid-area: 1 / 1 / span 1 / span 1;
+    place-self: center;
+}
+
+.card--title-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: 1 / 2 / span 1 / span 1;
+    place-self: flex-start;
+}
+
+.card__title-name {
+    font-weight: 600;
+}
+
+.card__subtitle {
+    opacity: 50%;
+    font-size: 0.9em;
+}
+
+.card__quotation {
+    grid-area: 2 / 1 / span 1 / span 2;
+    color: var(--White);
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1.5rem;
+}
+
+.card__content {
+    grid-area: 3 / 1 / span 1 / span 2;
+    color: var(--Light-gray);
+    opacity: 70%;
+    line-height: 1.4em;
+}
+
+.card--light > *,
+.card--light > .card__title-name,
+.card--light > .card__subtitle {
+    color: var(--Very-dark-grayish-blue);
+}
+
+.card--light > .card__content,
+.card--light > .card__quotation {
+    text-shadow: 2px 2px 4px var(--Light-opaque-gray);
+}
+
+.card--dark,
+.card--dark > .card__title-name,
+.card--dark > .card__subtitle {
+    color: var(--Light-gray);
+}
+
+/* ---------------------- */
+/* individual cards style */
+/* ---------------------- */
+
+.card-1 {
+    grid-column: span 2;
+    background-image: url("images/bg-pattern-quotation.svg");
+        background-color: var(--Moderate-violet);
+        background-repeat: no-repeat;
+        background-position: 80% 0;
+}
+
+.card-2{
+    background-color: var(--Very-dark-grayish-blue);
+}
+
+.card-3 {
+    grid-column: 1;
+    background-color: var(--White);
+}
+
+
+.card-4 {
+    grid-column: span 2;
+    background-color: var(--Very-dark-blackish-blue);
+}
+
+.card-5 {
+    grid-area: 1 / 4 / span 2 / span 1;
+    background-color: var(--White);
+}
+
+@media screen and (max-width: 1124px) {
+    main {
+        justify-content: center;
+        align-content: flex-start;
+        overflow: visible;
+    }
+
+    .cards_container {
+        display: flex;
+        flex-direction: column;
+        width: 24em;
+        margin: 2em 0;
+    }
+
+    .card-5 > .card__quotation {
+        height: fit-content;
+    }
+}
