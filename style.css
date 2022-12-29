@@ -21,10 +21,6 @@
     width: 1px;
 }
 
-.attribution {
-    display: none;
-}
-
 body {
     background-color: var(--Light-grayish-blue);
     font-family: 'Barlow Semi Condensed', sans-serif;
